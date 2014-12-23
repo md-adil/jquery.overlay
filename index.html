@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+<style>
+/*Styleing to overlay box*/
+	.overlay-box {
+		position: relative;
+		width: 300px;
+		background: #f1f1f1;
+		color: #222222;
+		margin: auto;
+		padding: 10px;
+		box-shadow: 0 0 10 #333;
+	}
+/*Overlay close button*/
+	.overlay-closeBtn {
+		font-family: sans-serif;
+		padding: 3px 8px;
+		background: #f00;
+		color: #fff;
+		text-decoration: none;
+		position: absolute;
+		top: 0;
+		right: 0;
+
+	}
+</style>
+</head>
+<body>
+	
+<a href="#" id="click_me">Click Me</a>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script src="overlay.js"></script>
+<script>
+// seting data varaible, it could be html element also
+var data = "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit minus et, numquam placeat id deleniti iusto atque officiis, consectetur quas fuga vitae ratione. Autem itaque veritatis maiores aliquam sunt eveniet?";
+
+// setting configuration, this is the default configs, you can ommit this
+var config = {
+	duration: 100, // Duration of box show/hide
+	bgClass: 'bg', // full with transparent element class name
+	bgColor: 'rgba(0,0,0,.45)', // full with transparent background color
+	boxClass: 'overlay-box', // overlay container box class name
+	closeBtnClass: 'overlay-closeBtn', // close button class name
+	closeBtnText: 'x' // close button text appeared in req squre close button, you can insert image through css
+};
+// initializing overlay method
+$('#click_me').overlay(data, config, function(){
+	console.log("Overlay created"); //trigger on create
+},function(){
+	console.log("Overlay closed"); //trigger on close
+});
+</script>
+</body>
+</html>
